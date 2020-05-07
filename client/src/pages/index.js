@@ -21,13 +21,13 @@ import {
 } from '@material-ui/core'
 
 const Editor = (props) => {
-
+    console.log(props)
     return (
         <div>
 
             <Container>
 
-                <List component="nav" aria-label="Device Settings">
+                {/* <List component="nav" aria-label="Device Settings">
                     <ListItem
                         button
                         aria-haspopup="true"
@@ -55,7 +55,7 @@ const Editor = (props) => {
                             onClick={(event)=>{props.menuItemClick(event,index)}}
                         >{option}</MenuItem>
                     ))}
-                </Menu>
+                </Menu> */}
 
                 {/** EXPERIMENTING  */}
                 <Button
@@ -79,7 +79,7 @@ const Editor = (props) => {
                         <MenuItem
                             key={option}
                             selected={index === props.menuIndex}
-                            onClick={props.menuItemClick}
+                            onClick={(index)=>{props.menuItemClick(index)}}
                         >{option}</MenuItem>
                     ))}
 
@@ -141,7 +141,7 @@ class Index extends React.Component {
         })
     }
 
-    menuItemClick = (event, index) => {
+    menuItemClick = (index) => {
         this.setState({
             anchorEl: null,
             selectedMenuIndex: index
@@ -163,7 +163,7 @@ class Index extends React.Component {
                     menuClose={() => { this.menuClose() }}
                     anchorEl={this.state.anchorEl}
                     options={this.state.menuOptions}
-                    MenuItemClick={(event, index) => { this.menuItemClick(event, index) }}
+                    menuItemClick={(index)=>{this.menuItemClick(index)}}
                     menuIndex={this.state.selectedMenuIndex}
                 />
 
