@@ -79,7 +79,7 @@ const Editor = (props) => {
                         <MenuItem
                             key={option}
                             selected={index === props.menuIndex}
-                            onClick={(index)=>{props.menuItemClick(index)}}
+                            onClick={(event)=>{props.menuItemClick(event,index)}}
                         >{option}</MenuItem>
                     ))}
 
@@ -91,7 +91,7 @@ const Editor = (props) => {
                     value={props.value}
                     onChange={props.change}
                     fontSize={16}
-                    mode='python'
+                    mode={`${props.options[props.menuIndex]}`}
                     theme="monokai"
                     width="100%"
                 />
@@ -111,13 +111,13 @@ class Index extends React.Component {
             anchorEl: null,
             selectedMenuIndex: 0,
             menuOptions: [
-                'Javascript',
-                'Java',
-                'Python',
-                'Kotlin',
-                'Golang',
-                'Rust',
-                'Dart'
+                'javascript',
+                'java',
+                'python',
+                'kotlin',
+                'golang',
+                'rust',
+                'dart'
             ]
         }
     }
@@ -141,7 +141,7 @@ class Index extends React.Component {
         })
     }
 
-    menuItemClick = (index) => {
+    menuItemClick = (event,index) => {
         this.setState({
             anchorEl: null,
             selectedMenuIndex: index
@@ -163,7 +163,7 @@ class Index extends React.Component {
                     menuClose={() => { this.menuClose() }}
                     anchorEl={this.state.anchorEl}
                     options={this.state.menuOptions}
-                    menuItemClick={(index)=>{this.menuItemClick(index)}}
+                    menuItemClick={(event,index)=>{this.menuItemClick(event,index)}}
                     menuIndex={this.state.selectedMenuIndex}
                 />
 
