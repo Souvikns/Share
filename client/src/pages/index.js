@@ -173,7 +173,7 @@ class Index extends React.Component {
         console.log(this.state.selectedMenuIndex)
         Axios({
             method: "POST",
-            url: "http://localhost:5000/api/share",
+            url: (process.env.NODE_ENV === 'development'?"http://localhost:5000/api/share":"https://share-c.herokuapp.com/api/share" ),
             data: {
                 code: this.state.code,
                 language: this.state.menuOptions[this.state.selectedMenuIndex]

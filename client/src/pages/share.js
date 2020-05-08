@@ -15,11 +15,11 @@ class Share extends React.Component{
             language: ""
         }
     }
-
+    
     componentDidMount(){
         Axios({
             method: "GET",
-            url: "http://localhost:5000/api/share",
+            url: (process.env.NODE_ENV === 'development'?"http://localhost:5000/api/share":"https://share-c.herokuapp.com/api/share" ),
             data: {
                 id: this.props.id
             }
