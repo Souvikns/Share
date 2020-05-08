@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd client && npm run build && cd .. && node index.js",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "dev-client": "cd client && npm start",
-    "dev-server": "nodemon index.js"
+    "dev-server": "nodemon index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",

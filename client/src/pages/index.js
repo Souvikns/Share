@@ -20,8 +20,22 @@ import {
     ListItemText
 } from '@material-ui/core'
 
+import {makeStyles} from '@material-ui/core/styles'
+
+const useStyles = makeStyles(theme=>({
+    root: {
+
+    },
+    menubtn: {
+        margin: '1.2rem 0px'
+    },
+    editor: {
+        marginBottom: '1.2rem'
+    }
+}))
+
 const Editor = (props) => {
-    console.log(props)
+    const classes = useStyles()
     return (
         <div>
 
@@ -64,6 +78,7 @@ const Editor = (props) => {
                     onClick={props.menuClick}
                     variant="outlined"
                     color="primary"
+                    className={classes.menubtn}
                 >
                     {props.options[props.menuIndex]}
                 </Button>
@@ -94,6 +109,7 @@ const Editor = (props) => {
                     mode={`${props.options[props.menuIndex]}`}
                     theme="monokai"
                     width="100%"
+                    className={classes.editor}
                 />
 
             </Container>
