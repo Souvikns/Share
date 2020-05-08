@@ -5,6 +5,7 @@ import {
   Switch
 } from 'react-router-dom'
 import Index from './pages/index'
+import Share from './pages/share'
 
 function App() {
   return (
@@ -13,6 +14,12 @@ function App() {
       <Switch>
         <Route exact path="/">
         <Index/>
+        </Route>
+      </Switch>
+
+      <Switch>
+        <Route path="/share/:id">
+        <Share/>
         </Route>
       </Switch>
 
