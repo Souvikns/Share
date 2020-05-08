@@ -111,6 +111,7 @@ const Editor = (props) => {
                     mode={`${props.options[props.menuIndex]}`}
                     theme="monokai"
                     width="100%"
+                    enableBasicAutocompletion={true}
                     className={classes.editor}
                 />
 
