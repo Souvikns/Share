@@ -35,7 +35,12 @@ router.route('/share')
                 ids.push(record.getId())
             })
             console.log(ids)
-            url = `http://localhost:3000/share/${ids[0]}`
+            if(process.env.HA){
+                url = `http://localhost:3000/share/${ids[0]}`
+            }else{
+                url = `https://share-c.herokuapp.com/share/${ids[0]}`
+            }
+            
 
             return res.status(200).json({ url: url })
 
