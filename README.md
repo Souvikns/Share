@@ -1,6 +1,8 @@
 # Share
  generate links to share your snippet 
 
+[![GitHub license](https://img.shields.io/github/license/Souvikns/Share?style=plastic)](https://github.com/Souvikns/Share/blob/master/LICENSE)
+
 ---
 
 
