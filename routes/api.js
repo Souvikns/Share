@@ -1,9 +1,10 @@
 const router = require('express').Router()
-const {base} = require('../utils/airtable')
+const { base } = require('../utils/airtable')
 
 
 router.route('/share')
-    .post(async (req,res)=>{
+    .post(async (req, res) => {
+        console.log(req)
         let code = req.body.code
         let language = req.body.language
 
@@ -14,7 +15,7 @@ router.route('/share')
 
         console.log(response)
 
-        let ids=[]
+        let ids = []
         let url = ""
 
         await base("Codes").create([
@@ -24,19 +25,19 @@ router.route('/share')
                     language: language
                 }
             }
-        ],(err,records)=>{
-            if(err){
+        ], (err, records) => {
+            if (err) {
                 console.log(err)
                 return res.status(404).json(err)
             }
 
-            records.forEach(record=>{
+            records.forEach(record => {
                 ids.push(record.getId())
             })
             console.log(ids)
             url = `http://localhost:3000/share/${ids[0]}`
 
-            return res.status(200).json({url: url})
+            return res.status(200).json({ url: url })
 
         })
 
@@ -46,14 +47,22 @@ router.route('/share')
         // return res.status(200).json({url: url})
 
     })
+    
+router.route('/share/:id')
     .get((req,res)=>{
-        code = req.body.id
-        const response = {
-            code: `console.log("Hello World")`,
-            language: "javascript"
-        }
+        let id = req.params.id
+        console.log(id)
 
-        res.status(200).json(response)
+        base("Codes").find(id,(err,record)=>{
+            if(err){
+                return res.status(404).json(err)
+            }
+
+            return res.status(200).json({
+                code: record.get('code'),
+                language: record.get('language')
+            })
+        })
     })
 
 module.exports = router
