@@ -10,6 +10,8 @@ import 'brace/mode/java'
 import 'brace/mode/dart'
 import 'brace/mode/golang'
 
+import {Container} from '@material-ui/core'
+
 const Id = () =>{
     let {id} = useParams()
     return <Share id={id}/>
@@ -44,14 +46,17 @@ class Share extends React.Component{
         
         return (
             <div>
-                <h1>Share Page</h1>
+                <Container>
                 <AceEditor  
                 value={this.state.code}
                 mode={this.state.language}
                 theme="monokai"
                 fontSize={16}
+                width="100%"
+                readOnly={true}
                 enableLiveAutocompletion={true}
                 />
+                </Container>
             </div>
         )
     }
