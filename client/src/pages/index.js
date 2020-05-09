@@ -80,11 +80,11 @@ const Editor = (props) => {
 
                     <Grid item xs={12} sm={6}>
 
-                        <Button 
-                        className={classes.menubtn} 
-                        variant="outlined" 
-                        color="primary"
-                        onClick={(code)=>{props.shareHandle(code)}}
+                        <Button
+                            className={classes.menubtn}
+                            variant="outlined"
+                            color="primary"
+                            onClick={(code) => { props.shareHandle(code) }}
                         >
                             Share
                         </Button>
@@ -95,7 +95,7 @@ const Editor = (props) => {
                 <Grid container>
                     <Grid item xs={12}>
                         <Container className={classes.link}>
-                        <a target="blank"  href={props.shareLink}>{props.shareLink}</a>
+                            <a target="blank" href={props.shareLink}>{props.shareLink}</a>
                         </Container>
                     </Grid>
                 </Grid>
@@ -126,7 +126,7 @@ class Index extends React.Component {
     constructor() {
         super()
         this.state = {
-            code:  "",
+            code: "",
             anchorEl: null,
             selectedMenuIndex: 0,
             menuOptions: [
@@ -169,21 +169,21 @@ class Index extends React.Component {
         console.log(this.state.selectedMenuIndex)
     }
 
-    sharebtn(code){
+    sharebtn(code) {
         console.log(this.state.code)
         console.log(this.state.selectedMenuIndex)
         Axios({
             method: "POST",
-            url: (process.env.NODE_ENV === 'development'?"http://localhost:5000/api/share":"https://share-c.herokuapp.com/api/share" ),
+            url: (process.env.NODE_ENV === 'development' ? "http://localhost:5000/api/share" : "https://share-c.herokuapp.com/api/share"),
             data: {
                 code: this.state.code,
                 language: this.state.menuOptions[this.state.selectedMenuIndex]
             }
-        }).then(res=>{
+        }).then(res => {
             this.setState({
                 shareLink: res.data.url
             })
-        }).catch(err=>{
+        }).catch(err => {
             console.log(err)
         })
     }
@@ -204,8 +204,8 @@ class Index extends React.Component {
                     options={this.state.menuOptions}
                     menuItemClick={(event, index) => { this.menuItemClick(event, index) }}
                     menuIndex={this.state.selectedMenuIndex}
-                    shareLink = {this.state.shareLink}
-                    shareHandle = {()=>{this.sharebtn()}}
+                    shareLink={this.state.shareLink}
+                    shareHandle={() => { this.sharebtn() }}
                 />
 
             </div>
