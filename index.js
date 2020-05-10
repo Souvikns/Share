@@ -14,6 +14,8 @@ app.use(express.static(path.join(__dirname,'client','build')))
 //routes 
 const apiRoutes = require('./routes/api')
 app.use('/api',apiRoutes)
+const githubRoute = require('./routes/github')
+app.use('/github',githubRoute)
 
 
 // client handling

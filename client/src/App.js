@@ -6,10 +6,13 @@ import {
 } from 'react-router-dom'
 import Index from './pages/index'
 import Share from './pages/share'
+import Navbar from './components/navbar'
 
 function App() {
   return (
     <Router>
+
+      <Navbar/>
 
       <Switch>
         <Route exact path="/">
