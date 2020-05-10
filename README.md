@@ -9,14 +9,14 @@
 
 ## Vison 
 
-Right now the application just provides code highlighting for some of the programming language. 
+Right now the application just provides code highlighting for some of the programming languages and generates url that could be shared.  
 
-What we want to build a platform which will help coders to review others code, and give valuable feedback. 
+What we want to build is a platform which will help coders to review others code, and give valuable feedback. 
 
-To attain this we need to follow some patterns to build this application 
+To attain this we need to follow some patterns to build this application. 
 
 
-- What I want to achive is that create an authentication model and store users and to able to create **access rights** and manage who can change **modify** the code. Also to store the generated code so that users can get all thier generated *urls* in one place. 
+- Create an authentication model and store users and to able to create **access rights** and manage who can change **modify** the code. Also to store the generated code so that users can get all thier generated *urls* in one place. 
 
 - Show differenes of other users that have changed the code 
     - like what new additions or deletions they have made to the code. 
