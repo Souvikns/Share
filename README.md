@@ -2,6 +2,7 @@
  generate links to share your snippet 
 
 [![GitHub license](https://img.shields.io/github/license/Souvikns/Share?style=plastic)](https://github.com/Souvikns/Share/blob/master/LICENSE)
+[![DeepScan grade](https://deepscan.io/api/teams/8580/projects/11395/branches/169288/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=8580&pid=11395&bid=169288)
 
 ---
 
